@@ -1,17 +1,18 @@
 {
-  "name": "vue-lorder+webpack",
+  "name": "vue-lorder-webpack",
   "version": "1.0.0",
   "description": "vue-lorder+webpack todolist",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "bulid": "webpack --config webpack.config.js"
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.js"
   },
   "author": "ds",
   "license": "ISC",
   "dependencies": {
     "babel": "^6.23.0",
     "babel-loader": "^8.0.6",
+    "cross-env": "^5.2.0",
     "css-loader": "^3.2.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
@@ -19,5 +20,8 @@
     "vue": "^2.6.10",
     "vue-loader": "^15.7.1",
     "webpack": "^4.39.2"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.7"
   }
 }
