@@ -14,7 +14,5 @@
 </script>
 
 <style scoped>
-#textClass {
-    color: brown;
-}
+
 </style>
