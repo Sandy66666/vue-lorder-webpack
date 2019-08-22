@@ -31,6 +31,17 @@ webpack-dev-server 是一个webpack的包 cross-env 在不同的环境上设置�
 npm install webpack-dev-server
 npm install cross-env
 ```
+```sh
+npm i postcss-loader autoprefixer babel-loader babel-core
+```
+```sh
+npm i babel-preset-env babel-plugin-transform-vue-jsx
+```
+```sh
+npm install @babel/core
+
+npm i  babel-plugin-transform-vue-jsx babel-helper-vue-jsx-merge-props
+```
 构建工具 webpack 现在的前端开发基本上很多框架都会配合webpack一起使用
 
 vue 的 vue-loader 适用 .vue文件的开发模式
@@ -42,3 +53,5 @@ vue 和 react 的 babel-loader 适用 jsx语法
 vue 开发已经离不开webpack,前端开发不仅仅是业务开发,学习vue不仅仅是api,要学习整个vue生态环境， vue-router, vuex, 组件开发，webpack配置。
 
 vue渲染过程，通过jsx可以更好的了解vue的渲染过程。每次调用render()方法，才能得到真正想要的结果。.vue文件的template部分最终是用vue-loader解析成render()方法，然后放到对象中，每次vue里面有数据更新时，都会重新去调用render()方法，生成新的HTML结构，插入到DOM结构中。
+
+ >* 尽量将数据的操作放在顶层中，数据在哪里声明就在哪里操作，不要在下层组件中操作数据，容易导致错误

@@ -1,18 +1,44 @@
 <template>
-    <div id="textClass">{{text}}</div>
+<!--    template中要有一个独立的节点-->
+    <div id="app">
+        <div id="cover"></div>
+        <Header></Header>
+        <Todo></Todo>
+        <Footer></Footer>
+    </div>
 </template>
 
 <script>
+    import Header from './todo/header.vue'
+    import Footer from './todo/footer.jsx'
+    import Todo from './todo/todo.vue'
+
     export default {
         name: "app",
-        data () {
-            return {
-                text: "我是一个text！"
-            }
+        components: {
+            Header,
+            Footer,
+            Todo
         }
     }
 </script>
 
-<style scoped>
-
+<style lang="stylus" scoped>
+    #app{
+        position absolute
+        left 0
+        right 0
+        top 0
+        bottom 0
+    }
+    #cover{
+        position absolute
+        left 0
+        right 0
+        top 0
+        bottom 0
+        background-color #999
+        opacity .8
+        z-index -1
+    }
 </style>
