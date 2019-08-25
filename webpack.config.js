@@ -73,9 +73,6 @@ const config = {
         // 请确保引入这个插件！
         new VueLoaderPlugin(),
         new HtmlPlugin(),
-        // new HtmlPlugin({
-        //     template: join(__dirname, 'dist', 'index.html')
-        // }),
         new webpack.DefinePlugin({
             'process.env': {
                 //必须加双引号，vue开发版本中包含很多错误信息的应用，开发版本中的很多功能在正式环境中没必要去用，
@@ -92,6 +89,13 @@ if(isDev) {
     //帮助在页面上调试代码，而且都是es6的代码，使用sourcemap完整映射编译前后的代码
     config.devtool = '#cheap-module-eval-source-map',
      config.devServer = {
+        proxy: {
+           "/api": {
+               target: "http://192.168.1.9:8080",
+               changeOrigin:true,
+               pathRewrite: {"^/api": ""} //后面可以使重写的新路径，一般不做更改
+           }
+        },
         port: '8000',
         host: '0.0.0.0',//可以通过localhost访问也可以通过本机内网ip访问，如果是localhost输入ip是访问不了的
         // 如果webpack有任何错误让它加载网页上

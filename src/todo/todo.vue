@@ -15,24 +15,28 @@
             @del="deleteTodo"
         />
         <Tabs :filter="filter" :todos="todos" @toggle="toggleFilter" @clearCompleted="clearAllCompleted"/>
+        <request-vue :dataJson="dataJson"></request-vue>
     </section>
 </template>
 
 <script>
     import Item from './item.vue'
     import Tabs from './tabs.vue'
+    import RequestVue from './requestVue.vue'
 
     let id = 0;
     export default {
         name: "todo",
         components: {
             Item,
-            Tabs
+            Tabs,
+            RequestVue
         },
         data() {
             return {
                 todos: [],
-                filter: 'all'
+                filter: 'all',
+                dataJson: {}
             }
         },
         methods: {
@@ -65,7 +69,22 @@
                 return this.todos.filter(todo => completed === todo.completed)
             }
         },
-        comments: true
+        comments: true,
+        created() {
+            this.$axios({
+                // method:'get',
+                // url: '/get/test3/1'
+                method: 'post',
+                url: '/post/test2',
+                data: {"productNo":"2222","interType":null,"flightType":null,"subFlightType":null}
+            }).then(res => {
+                debugger
+                this.dataJson = res.data;
+            }).catch((reason) => {
+                debugger
+                console.log(reason);
+            })
+        }
     }
 </script>
 
